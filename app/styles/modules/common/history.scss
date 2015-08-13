@@ -67,6 +67,7 @@
     }
 }
 .add-comment {
+    @include cursor-progress;
     @include clearfix;
     &.active {
         .button-green {

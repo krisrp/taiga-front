@@ -27,8 +27,14 @@ module = angular.module("taigaEvents", [])
 
 
 class EventsService
-    constructor: (@win, @log, @config, @auth) ->
+    constructor: (@win, @log, @config, @auth, @notificationService, @rootScope) ->
         bindMethods(@)
+
+        # example
+        setTimeout (() =>
+            @notificationService.show("kkkkk")
+            @rootScope.$digest()
+        ), 3000
 
     initialize: (sessionId) ->
         @.sessionId = sessionId
@@ -77,6 +83,11 @@ class EventsService
         @.ws.close()
 
         delete @.ws
+
+    notifications: ->
+        @.subscribe null, 'notifications', (data) =>
+            @notificationService.show(data.msg)
+            @rootScope.$digest()
 
     ###########################################
     # Heartbeat (Ping - Pong)
@@ -144,7 +155,12 @@ class EventsService
             return
 
         subscription = @.subscriptions[routingKey]
-        subscription.scope.$apply ->
+
+        if subscription.scope
+            subscription.scope.$apply ->
+                subscription.callback(data.data)
+
+        else
             subscription.callback(data.data)
 
     ###########################################
@@ -168,7 +184,8 @@ class EventsService
 
         @.subscriptions[routingKey] = subscription
         @.sendMessage(message)
-        scope.$on("$destroy", => @.unsubscribe(routingKey))
+
+        scope.$on("$destroy", => @.unsubscribe(routingKey)) if scope
 
     unsubscribe: (routingKey) ->
         if @.error
@@ -189,6 +206,7 @@ class EventsService
     onOpen: ->
         @.connected = true
         @.startHeartBeatMessages()
+        @.notifications()
 
         @log.debug("WebSocket connection opened")
         token = @auth.getToken()
@@ -204,6 +222,7 @@ class EventsService
         @.log.debug "WebSocket message received: #{event.data}"
 
         data = JSON.parse(event.data)
+
         if data.cmd == "pong"
             @.processHeartBeatPongMessage(data)
         else
@@ -223,11 +242,18 @@ class EventsProvider
     setSessionId: (sessionId) ->
         @.sessionId = sessionId
 
-    $get: ($win, $log, $conf, $auth) ->
-        service = new EventsService($win, $log, $conf, $auth)
+    $get: ($win, $log, $conf, $auth, notificationService, $rootScope) ->
+        service = new EventsService($win, $log, $conf, $auth, notificationService, $rootScope)
         service.initialize(@.sessionId)
         return service
 
-    @.prototype.$get.$inject = ["$window", "$log", "$tgConfig", "$tgAuth"]
+    @.prototype.$get.$inject = [
+        "$window",
+        "$log",
+        "$tgConfig",
+        "$tgAuth",
+        "tgNotificationService",
+        "$rootScope"
+    ]
 
 module.provider("$tgEvents", EventsProvider)

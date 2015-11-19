@@ -74,14 +74,23 @@ div.wrapper(
         tg-history(ng-model="issue", type="issue")
 
     sidebar.menu-secondary.sidebar.ticket-data
-        section.status
-            .ticket-title(tg-issue-status-display, ng-model="issue")
-        tg-created-by-display.ticket-created-by(ng-model="issue")
+        
+        .ticket-header
+            span.ticket-title(
+                tg-issue-status-display
+                ng-model="issue"
+            )
+            span.detail-status(
+                tg-issue-status-button
+                ng-model="issue"
+            )
+        
+        //tg-created-by-display.ticket-created-by(ng-model="issue")
+        
         div.ticket-data-container
             div.ticket-status(tg-issue-type-button, ng-model="issue")
             div.ticket-status(tg-issue-severity-button, ng-model="issue")
             div.ticket-status(tg-issue-priority-button, ng-model="issue")
-            div.ticket-status(tg-issue-status-button, ng-model="issue")
 
         section.ticket-assigned-to(tg-assigned-to, ng-model="issue", required-perm="modify_issue")
 

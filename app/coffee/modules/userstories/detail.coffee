@@ -362,7 +362,7 @@ UsStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $temp
             $.fn.popover().closeAll()
 
             currentLoading = $loading()
-                .target($el.find(".level-name"))
+                .target($el)
                 .start()
 
             onSuccess = ->
@@ -377,7 +377,7 @@ UsStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $temp
 
             $repo.save(us).then(onSuccess, onError)
 
-        $el.on "click", ".status-data", (event) ->
+        $el.on "click", ".js-edit-status", (event) ->
             event.preventDefault()
             event.stopPropagation()
             return if not isEditable()

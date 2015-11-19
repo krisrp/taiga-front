@@ -275,7 +275,7 @@ TaskStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $co
             task.status = status
 
             currentLoading = $loading()
-                .target($el.find(".level-name"))
+                .target($el)
                 .start()
 
             onSuccess = ->
@@ -290,7 +290,7 @@ TaskStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $co
 
             $repo.save(task).then(onSuccess, onError)
 
-        $el.on "click", ".status-data", (event) ->
+        $el.on "click", ".js-edit-status", (event) ->
             event.preventDefault()
             event.stopPropagation()
             return if not isEditable()

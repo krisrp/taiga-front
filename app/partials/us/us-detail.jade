@@ -90,21 +90,18 @@ div.wrapper(
         )
 
     sidebar.menu-secondary.sidebar.ticket-data
-        section
-            div.ticket-title(
+        
+        .ticket-header
+            span.ticket-title(
                 tg-us-status-display
                 ng-model="us"
             )
+            span.detail-status(
+                tg-us-status-button
+                ng-model="us"
+            )
 
-            tg-created-by-display.ticket-created-by(ng-model="us")
-
-            //div.ticket-detail-progress-bar(tg-us-tasks-progress-display, ng-model="tasks")
-
-            div.ticket-data-container
-                div.ticket-status(
-                    tg-us-status-button
-                    ng-model="us"
-                )
+        //tg-created-by-display.ticket-created-by(ng-model="us")
 
         section.ticket-estimation
             tg-us-estimation(ng-model="us")

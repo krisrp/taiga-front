@@ -279,7 +279,7 @@ IssueStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $t
             issue.status = statusId
 
             currentLoading = $loading()
-                .target($el.find(".level-name"))
+                .target($el)
                 .start()
 
             onSuccess = ->
@@ -296,7 +296,7 @@ IssueStatusButtonDirective = ($rootScope, $repo, $confirm, $loading, $qqueue, $t
 
             $repo.save(issue).then(onSuccess, onError)
 
-        $el.on "click", ".status-data", (event) ->
+        $el.on "click", ".js-edit-status", (event) ->
             event.preventDefault()
             event.stopPropagation()
             return if not isEditable()

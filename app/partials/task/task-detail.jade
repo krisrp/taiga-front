@@ -90,14 +90,15 @@ div.wrapper(
 
     sidebar.menu-secondary.sidebar.ticket-data
 
-        section.status
-
-            .ticket-title(tg-task-status-display, ng-model="task")
-
-            .ticket-created-by(tg-created-by-display, ng-model="task")
-
-            .ticket-data-container
-                .ticket-status(tg-task-status-button, ng-model="task")
+        .ticket-header
+            span.ticket-title(
+                tg-task-status-display
+                ng-model="task"
+            )
+            span.detail-status(
+                tg-task-status-button
+                ng-model="task"
+            )
 
         section.ticket-assigned-to(tg-assigned-to, ng-model="task", required-perm="modify_task")
 

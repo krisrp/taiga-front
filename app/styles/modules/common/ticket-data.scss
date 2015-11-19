@@ -1,35 +1,52 @@
-.ticket-data {
+.ticket-header {
+    margin-bottom: 1rem;
     .ticket-title {
         @extend %larger;
         @extend %light;
         margin: 1.5rem 0 2rem;
         text-transform: uppercase;
-        span {
-            margin-right: .25rem;
-            &:last-child {
-                @extend %large;
+        vertical-align: sub;
+    }
+    .detail-status {
+        @extend %small;
+        display: inline-block;
+        margin-left: .25rem;
+        position: relative;
+        .detail-status-inner {
+            color: $white;
+            display: flex;
+            justify-content: center;
+            padding: .15rem .25rem;
+            text-transform: uppercase;
+        }
+        .pop-status {
+            @include popover(150px, 1.25rem, 0, '', '');
+            padding: 0;
+            text-transform: none;
+            a {
+                @extend %text;
+                padding: .5rem 1rem;
+            }
+            a:hover {
+                background: rgba($primary-light, .2);
             }
         }
-    }
-    .ticket-data-container {
-        @extend %small;
-        @extend %normal;
-        margin-bottom: 1rem;
-        .icon {
+        .icon-arrow-bottom {
             margin-left: .25rem;
         }
     }
-    .level {
-        display: inline-block;
-        margin-right: .5rem;
-        vertical-align: top;
-    }
-    .level-name {
-        color: darken($whitish, 20%);
-        float: right;
-        text-transform: lowercase;
-    }
+}
 
+.ticket-data-container {
+    @extend %small;
+    @extend %normal;
+    margin-bottom: 1rem;
+    .icon {
+        margin-left: .25rem;
+    }
+}
+
+.ticket-data {
     .ticket-estimation {
         .ticket-role-points {
             max-width: 25%;
@@ -41,16 +58,20 @@
     }
 }
 
+
 .ticket-status {
-    margin-bottom: .5rem;
     &:last-child {
         margin: 0;
     }
-    div {
-        background: darken($whitish, 5%);
-        padding: .5rem;
-        padding-right: 1rem;
-        transition: background .2s ease-in;
+    .level {
+        display: inline-block;
+        margin-right: .5rem;
+        vertical-align: top;
+    }
+    .level-name {
+        color: darken($whitish, 20%);
+        float: right;
+        text-transform: lowercase;
     }
     .clickable {
         &:hover {
@@ -59,29 +80,39 @@
         }
     }
     .type-data {
+        background: darken($whitish, 5%);
+        margin-bottom: .5rem;
+        padding: .5rem;
+        padding-right: 1rem;
         position: relative;
+        transition: background .2s ease-in;
         .pop-type {
             @include popover(150px, '', 30px, '', '');
         }
     }
     .severity-data {
+        background: darken($whitish, 5%);
+        margin-bottom: .5rem;
+        padding: .5rem;
+        padding-right: 1rem;
         position: relative;
+        transition: background .2s ease-in;
         .pop-severity {
             @include popover(150px, '', 30px, '', '');
         }
     }
     .priority-data {
+        background: darken($whitish, 5%);
+        margin-bottom: .5rem;
+        padding: .5rem;
+        padding-right: 1rem;
         position: relative;
+        transition: background .2s ease-in;
         .pop-priority {
             @include popover(150px, '', 30px, '', '');
         }
     }
-    .status-data {
-        position: relative;
-        .pop-status {
-            @include popover(150px, '', 30px, '', '');
-        }
-    }
+
 }
 
 .ticket-track-buttons {

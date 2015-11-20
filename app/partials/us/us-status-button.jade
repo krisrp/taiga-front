@@ -1,7 +1,6 @@
 span.detail-status-inner.js-edit-status(
     class!="<% if(editable){ %>clickable<% }%>"
     style!="background-color:<%- status.color %>"
-    ng-click="editStatus()"
 )
     span <%- status.name %>
     <% if(editable){ %>

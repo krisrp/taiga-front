@@ -1,9 +1,8 @@
 .ticket-header {
-    margin-bottom: 1rem;
+    margin: 1.5rem 0 2rem;
     .ticket-title {
         @extend %larger;
         @extend %light;
-        margin: 1.5rem 0 2rem;
         text-transform: uppercase;
         vertical-align: sub;
     }
@@ -12,30 +11,36 @@
         display: inline-block;
         margin-left: .25rem;
         position: relative;
-        .detail-status-inner {
-            color: $white;
-            display: flex;
-            justify-content: center;
-            padding: .15rem .25rem;
-            text-transform: uppercase;
-        }
-        .pop-status {
-            @include popover(150px, 1.25rem, 0, '', '');
-            padding: 0;
-            text-transform: none;
-            a {
-                @extend %text;
-                padding: .5rem 1rem;
-            }
-            a:hover {
-                background: rgba($primary-light, .2);
-            }
-        }
         .icon-arrow-bottom {
             margin-left: .25rem;
         }
     }
+    .detail-status-inner {
+        color: $white;
+        display: flex;
+        justify-content: center;
+        padding: .15rem .25rem;
+        text-transform: uppercase;
+    }
+    .pop-status {
+        @include popover(150px, 1.25rem, 0, '', '');
+        padding: 0;
+        text-transform: none;
+        a {
+            @extend %text;
+            padding: .5rem 1rem;
+        }
+        a:hover {
+            background: rgba($primary-light, .2);
+        }
+    }
 }
+
+
+
+
+
+// -------------------------------------------------------------- //
 
 .ticket-data-container {
     @extend %small;

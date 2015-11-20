@@ -24,7 +24,7 @@ DiscoverHomeOrderByDirective = () ->
         controller: "DiscoverHomeOrderBy",
         controllerAs: "vm",
         bindToController: true,
-        templateUrl: "discover/discover-home-order-by/discover-home-order-by.html",
+        templateUrl: "discover/components/discover-home-order-by/discover-home-order-by.html",
         scope: {
             onChange: "&"
         },

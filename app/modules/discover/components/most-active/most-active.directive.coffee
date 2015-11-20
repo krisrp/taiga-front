@@ -14,20 +14,20 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-# File: featured-projects.directive.coffee
+# File: most-active.directive.coffee
 ###
 
-FeaturedProjectsDirective = () ->
-    link = (scope, el, attrs) ->
+MostActiveDirective = () ->
+    link = (scope, el, attrs, ctrl) ->
 
     return {
-        controller: "FeaturedProjects"
+        controller: "MostActive"
         controllerAs: "vm",
-        templateUrl: "discover/featured-projects/featured-projects.html",
+        templateUrl: "discover/components/most-active/most-active.html",
         scope: {},
         link: link
     }
 
-FeaturedProjectsDirective.$inject = []
+MostActiveDirective.$inject = []
 
-angular.module("taigaDiscover").directive("tgFeaturedProjects", FeaturedProjectsDirective)
+angular.module("taigaDiscover").directive("tgMostActive", MostActiveDirective)

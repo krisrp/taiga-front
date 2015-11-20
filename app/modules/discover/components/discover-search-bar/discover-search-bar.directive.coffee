@@ -17,7 +17,7 @@
 # File: discover-search.directive.coffee
 ###
 
-DiscoverSearchDirective = () ->
+DiscoverSearchBarDirective = () ->
     link = (scope, el, attrs, ctrl) ->
         scope.vm = {}
 
@@ -29,11 +29,11 @@ DiscoverSearchDirective = () ->
 
     return {
         controllerAs: "vm",
-        templateUrl: "discover/discover-search/discover-search.html",
+        templateUrl: "discover/components/discover-search-bar/discover-search-bar.html",
         scope: {},
         link: link
     }
 
-DiscoverSearchDirective.$inject = []
+DiscoverSearchBarDirective.$inject = []
 
-angular.module("taigaDiscover").directive("tgDiscoverSearch", DiscoverSearchDirective)
+angular.module("taigaDiscover").directive("tgDiscoverSearchBar", DiscoverSearchBarDirective)

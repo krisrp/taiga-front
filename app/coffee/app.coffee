@@ -82,6 +82,16 @@ configure = ($routeProvider, $locationProvider, $httpProvider, $provide, $tgEven
         }
     )
 
+    $routeProvider.when("/discover/search",
+        {
+            templateUrl: "discover/discover-search/discover-search.html",
+            title: "PROJECT.NAVIGATION.DISCOVER",
+            loader: true,
+            controller: "DiscoverSearch",
+            controllerAs: "vm"
+        }
+    )
+
     $routeProvider.when("/projects/",
         {
             templateUrl: "projects/listing/projects-listing.html",

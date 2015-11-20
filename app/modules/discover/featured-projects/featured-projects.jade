@@ -1,0 +1,7 @@
+div
+    h1 Featured projects
+
+    div(style="display: flex;")
+        div(tg-repeat="project in vm.featured track by project.get('id')")
+            h2 {{::project.get('name')}}
+            p {{::project.get('description')}}

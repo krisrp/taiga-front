@@ -1,0 +1,15 @@
+div
+    h1 Most active
+
+    tg-discover-home-order-by(on-change="vm.orderBy(type)")
+
+    div
+        div(ng-if="vm.loading")
+          p loading...
+
+        div(tg-repeat="project in vm.mostActive track by project.get('id')")
+            h2 {{::project.get('name')}}
+            p {{::project.get('description')}}
+
+
+        a(href="#") View more

@@ -1,0 +1,15 @@
+div
+    h1 Discover Projects
+    p More than {{vm.projects}} projects to discover
+
+    form
+        input(
+            type="text",
+            placeholder="Search"
+        )
+
+        ul(ng-if="vm.filter")
+            li All
+            li Kanban
+            li Scrum
+            li Looking for people

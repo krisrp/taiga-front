@@ -49,6 +49,8 @@ urls = {
     "not-found": "/not-found"
     "permission-denied": "/permission-denied"
 
+    "discover": "/discover"
+
     "login": "/login"
     "forgot-password": "/forgot-password"
     "change-password": "/change-password/:token"

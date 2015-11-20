@@ -7,11 +7,6 @@ nav.navbar(ng-if="vm.isEnabledHeader")
 
             include ../../svg/logo.svg
 
-        //a(
-        //    href="#",
-        //    title="{{'PROJECT.NAVIGATION.DISCOVER_TITLE' | translate}}",
-        //    translate="PROJECT.NAVIGATION.DISCOVER")
-
         a(
             href="https://taiga.io/support/",
             target="_blank",
@@ -24,6 +19,12 @@ nav.navbar(ng-if="vm.isEnabledHeader")
           title="{{'PROJECT.NAVIGATION.DASHBOARD_TITLE' | translate}}")
 
             include ../../svg/dashboard.svg
+
+        a(
+            href="#",
+            tg-nav="discover",
+            title="{{'PROJECT.NAVIGATION.DISCOVER_TITLE' | translate}}",
+            translate="PROJECT.NAVIGATION.DISCOVER")
 
         div.topnav-dropdown-wrapper(ng-show="vm.projects.size", tg-dropdown-project-list)
         //div.topnav-dropdown-wrapper(tg-dropdown-organization-list)

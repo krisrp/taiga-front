@@ -1,0 +1,8 @@
+div
+  a(href="#", ng-click="vm.toggleOpen()") {{vm.currentText()}}
+
+  ul(ng-if="vm.is_open")
+      li(ng-click="vm.orderBy('week')") this week
+      li(ng-click="vm.orderBy('month')") this month
+      li(ng-click="vm.orderBy('year')") this year
+      li(ng-click="vm.orderBy('all')") all time

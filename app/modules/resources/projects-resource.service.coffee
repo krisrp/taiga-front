@@ -22,6 +22,13 @@ pagination = () ->
 Resource = (urlsService, http, paginateResponseService) ->
     service = {}
 
+    service.getProjects = () ->
+        url = urlsService.resolve("projects")
+
+        return http.get(url)
+            .then (result) ->
+                return Immutable.fromJS(result.data)
+
     service.getProjectBySlug = (projectSlug) ->
         url = urlsService.resolve("projects")
 

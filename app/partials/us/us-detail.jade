@@ -91,7 +91,7 @@ div.wrapper(
 
     sidebar.menu-secondary.sidebar.ticket-data
         
-        .ticket-header
+        section.ticket-header
             span.ticket-title(
                 tg-us-status-display
                 ng-model="us"
@@ -111,19 +111,20 @@ div.wrapper(
             required-perm="modify_us"
         )
 
-        section.track-buttons-container.ticket-track-buttons
-            div.watch-button
-                tg-watch-button(
-                    item="us"
-                    on-watch="ctrl.onWatch"
-                    on-unwatch="ctrl.onUnwatch"
-                )
-
+        section.ticket-watch-buttons
+            div.ticket-watch(
+                tg-watch-button
+                item="us"
+                data-environment="ticket"
+                on-watch="ctrl.onWatch"
+                on-unwatch="ctrl.onUnwatch"
+            )
             div.ticket-watchers(
                 tg-watchers
                 ng-model="us"
                 required-perm="modify_us"
             )
+
 
         section.ticket-detail-settings
             tg-us-team-requirement-button(ng-model="us")

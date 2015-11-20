@@ -104,75 +104,55 @@
             @include popover(150px, '', 30px, '', '');
         }
     }
-
 }
 
-.ticket-track-buttons {
-    .track-inner {
+.ticket-watch {
+    .ticket-watch-title {
+        @extend %bold;
+        margin-bottom: .5rem;
+    }
+    .ticket-watch-inner {
+        display: flex;
+    }
+    .track-icon {
+        position: relative;
+        top: 2px;
+    }
+    .ticket-watch-button,
+    .add-watcher {
         @extend %light;
         @extend %small;
-        background: darken($whitish, 5%);
+        background: $gray-light;
+        color: $white;
+        flex: 1;
         padding: .25rem;
+        text-align: center;
         text-transform: uppercase;
         transition: background .25s;
-        &:hover {
-            background: darken($whitish, 10%);
-        }
-    }
-    .track-button {
-        width: 100%;
-    }
-    .active {
-        .track-button-counter {
-            background: rgba($grayer, .5);
+        path {
+            fill: $white;
         }
         &:hover {
-            .track-inner {
+            background: $primary-light;
+        }
+        &.active {
+            background: $primary-light;
+            &:hover {
                 background: rgba($primary-light, .2);
             }
         }
         &.is-hover {
-            .track-inner {
-                background: $red;
-                color: $whitish;
-                transition: background .3s;
-            }
+            background: $red;
+            color: $whitish;
+            transition: background .3s;
             path {
                 fill: $red-light;
             }
         }
+
     }
-    .track-button-counter {
-        @extend %large;
-        background: rgba($grayer, .25);
-        color: $whitish;
-        padding: 0 .5rem;
-    }
-    .vote-button {
-        margin-bottom: .3rem;
-    }
-    .watch-button {
-        border-bottom: 0;
-    }
-    .ticket-watchers {
-        margin: .5rem 0;
-    }
-    .add-watcher {
-        display: block;
-        margin: .5rem;
-        .icon {
-            background: rgba($grayer, .25);
-            color: $whitish;
-            margin-right: .5rem;
-            padding: .25rem;
-        }
-        &:hover {
-            .icon {
-                background: $primary-light;
-                color: $whitish;
-                transition: background .3s linear;
-            }
-        }
+    .ticket-watch-button {
+        margin-right: .25rem;
     }
 }
 

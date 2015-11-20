@@ -150,6 +150,7 @@
             "OPEN": "Open"
         },
         "WATCHERS": {
+            "WATCHERS": "Watchers",
             "ADD": "Add watchers",
             "TITLE_ADD": "Add a project member to the watchers list",
             "DELETE": "Delete watcher",

@@ -17,23 +17,39 @@
 # File: discover-search.directive.coffee
 ###
 
-DiscoverSearchBarDirective = () ->
+DiscoverSearchBarDirective = (navUrls, location, route, routeParams) ->
     link = (scope, el, attrs, ctrl) ->
-        scope.vm = {}
+        submit = (event) =>
+            event.preventDefault()
 
-        # TODO
-        scope.vm.projects = '70k'
+            text = el.find('input').val()
+            url = navUrls.resolve('discover-search')
+
+            scope.$apply -> location.search('text', text).path(url)
+
+        el.on('submit', 'form', submit)
 
         attrs.$observe 'filter', () ->
             scope.vm.filter = scope.$eval(attrs.filter)
 
     return {
-        controllerAs: "vm",
-        templateUrl: "discover/components/discover-search-bar/discover-search-bar.html",
-        scope: {},
+        controller: "DiscoverSearchBar",
+        controllerAs: "vm"
+        templateUrl: 'discover/components/discover-search-bar/discover-search-bar.html',
+        bindToController: true,
+        scope: {
+            q: "="
+            filter: "=",
+            onChange: "&"
+        },
         link: link
     }
 
-DiscoverSearchBarDirective.$inject = []
+DiscoverSearchBarDirective.$inject = [
+    "$tgNavUrls",
+    "$tgLocation",
+    "$route",
+    "$routeParams"
+]
 
-angular.module("taigaDiscover").directive("tgDiscoverSearchBar", DiscoverSearchBarDirective)
+angular.module('taigaDiscover').directive('tgDiscoverSearchBar', DiscoverSearchBarDirective)

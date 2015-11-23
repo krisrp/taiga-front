@@ -4,12 +4,29 @@ div
 
     form
         input(
+            name="search",
             type="text",
             placeholder="Search"
+            ng-model="vm.q"
         )
 
-        ul(ng-if="vm.filter")
-            li All
-            li Kanban
-            li Scrum
-            li Looking for people
+        ul(ng-if="vm.filter", style="display: flex")
+            li(
+                ng-class="{active: vm.filter == 'all'}",
+                ng-click="vm.selectFilter('all')"
+            ) All
+
+            li(
+                ng-class="{active: vm.filter == 'kanban'}",
+                ng-click="vm.selectFilter('kanban')"
+            ) Kanban
+
+            li(
+                ng-class="{active: vm.filter == 'scrum'}",
+                ng-click="vm.selectFilter('scrum')"
+            ) Scrum
+
+            li(
+                ng-class="{active: vm.filter == 'people'}",
+                ng-click="vm.selectFilter('people')"
+            ) Looking for people

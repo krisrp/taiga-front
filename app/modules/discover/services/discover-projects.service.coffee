@@ -24,10 +24,14 @@ class DiscoverProjectsService extends taiga.Service
 
     constructor: (@rs) ->
         @._mostLiked = Immutable.List()
+        @._mostActive = Immutable.List()
+        @._featured = Immutable.List()
+        @._searchResult = Immutable.List()
 
         taiga.defineImmutableProperty @, "mostLiked", () => return @._mostLiked
         taiga.defineImmutableProperty @, "mostActive", () => return @._mostActive
         taiga.defineImmutableProperty @, "featured", () => return @._featured
+        taiga.defineImmutableProperty @, "searchResult", () => return @._searchResult
 
     fetchMostLiked: () ->
         return @rs.projects.getProjects()
@@ -40,5 +44,13 @@ class DiscoverProjectsService extends taiga.Service
     fetchFeatured: () ->
         return @rs.projects.getProjects()
             .then (projects) => @._featured = projects
+
+    resetSearchList: () ->
+        @._searchResult = Immutable.List()
+
+    fetchSearch: () ->
+        return @rs.projects.getProjects()
+            .then (projects) =>
+                @._searchResult = @._searchResult.concat(projects)
 
 angular.module("taigaDiscover").service("tgDiscoverProjectsService", DiscoverProjectsService)

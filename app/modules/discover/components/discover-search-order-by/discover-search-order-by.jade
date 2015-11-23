@@ -1,0 +1,68 @@
+div
+  div
+      a(href="#", ng-click="vm.toggleOpenLike()") Most liked
+      div(ng-if="vm.like_is_open")
+          p(ng-if="vm.likeOrder")
+              a(
+                  href="#",
+                  ng-click="vm.likeOrderBy(null)"
+              ) Clear order
+          ul
+              li
+                  a(
+                      ng-class="{active: vm.likeOrder == 'week'}",
+                      href="#",
+                      ng-click="vm.likeOrderBy('week')"
+                  ) this week
+              li
+                  a(
+                      ng-class="{active: vm.likeOrder == 'month'}",
+                      href="#",
+                      ng-click="vm.likeOrderBy('month')"
+                  ) this month
+              li
+                  a(
+                      ng-class="{active: vm.likeOrder == 'year'}",
+                      href="#",
+                      ng-click="vm.likeOrderBy('year')"
+                  ) this year
+              li
+                  a(
+                      ng-class="{active: vm.likeOrder == 'all'}",
+                      href="#",
+                      ng-click="vm.likeOrderBy('all')"
+                  ) all time
+
+  div
+      a(href="#", ng-click="vm.toggleOpenActivity()") Most active
+      div(ng-if="vm.activity_is_open")
+          p(ng-if="vm.activityOrder")
+              a(
+                  href="#",
+                  ng-click="vm.activityOrderBy(null)"
+              ) Clear order
+          ul
+              li
+                  a(
+                      ng-class="{active: vm.activityOrder == 'week'}",
+                      href="#",
+                      ng-click="vm.activityOrderBy('week')"
+                  ) this week
+              li
+                  a(
+                      ng-class="{active: vm.activityOrder == 'month'}",
+                      href="#",
+                      ng-click="vm.activityOrderBy('month')"
+                  ) this month
+              li
+                  a(
+                      ng-class="{active: vm.activityOrder == 'year'}",
+                      href="#",
+                      ng-click="vm.activityOrderBy('year')"
+                  ) this year
+              li
+                  a(
+                      ng-class="{active: vm.activityOrder == 'all'}",
+                      href="#",
+                      ng-click="vm.activityOrderBy('all')"
+                  ) all time

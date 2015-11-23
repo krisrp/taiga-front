@@ -1,0 +1,25 @@
+doctype html
+
+div.centered
+    tg-discover-search-bar(
+        filter="vm.filter",
+        q="vm.q",
+        on-change="vm.onChangeFilter()"
+    )
+
+    div
+        tg-discover-search-order-by(on-change="vm.onChangeOrder()")
+
+    div(tg-repeat="project in vm.searchResult track by project.get('id')")
+        h2 {{::project.get('name')}}
+        p {{::project.get('description')}}
+
+    div(ng-if="vm.loading")
+      p loading
+
+    p
+        a(
+            href="#"
+            ng-click="vm.showMore()"
+        )
+             show more

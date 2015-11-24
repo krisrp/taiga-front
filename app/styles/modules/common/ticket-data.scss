@@ -36,12 +36,6 @@
     }
 }
 
-
-
-
-
-// -------------------------------------------------------------- //
-
 .ticket-data-container {
     @extend %small;
     @extend %normal;
@@ -157,12 +151,21 @@
 }
 
 .ticket-detail-settings {
+    display: flex;
+    justify-content: center;
     margin-top: 2rem;
     label,
-    .button {
-        display: block;
-        margin-bottom: .5rem;
-        text-align: center;
+    .item-block,
+    .item-unblock,
+    .button-delete {
+        background: $gray-light;
+        margin-right: .5rem;
+        padding: 1rem;
+        transition: background .2s linear;
+        transition-delay: .1s;
+        &:hover {
+            background: $gray;
+        }
         &.editable {
             cursor: pointer;
         }
@@ -170,34 +173,32 @@
             display: none;
         }
     }
-    .loading-spinner {
-        @extend %loading-spinner;
+    .item-block,
+    .item-unblock {
+        display: none;
+        &.is-active {
+            display: inline-block;
+        }
     }
-    .button-gray {
-        background: $gray-light;
+    .item-unblock {
+        background: $red;
+    }
+    .button-delete {
+        background: $red-light;
         &:hover {
-            background: $gray-light;
-        }
-        &.editable {
-            &:hover {
-                background: $grayer;
-                cursor: pointer;
-            }
-        }
-        &.active {
-            background: $primary;
+            background: $red;
         }
     }
-    .item-block {
-        &.editable {
-            &:hover {
-                background: $red;
-                cursor: pointer;
-            }
-        }
+    img {
+        max-height: 1.25rem;
+        max-width: 1.25rem;
+        width: 100%;
     }
-    .button-red {
-        display: block;
-        margin-top: 2rem;
+    svg {
+        fill: $white;
+        height: 100%;
+        max-height: 1.25rem;
+        max-width: 1.25rem;
+        width: 100%;
     }
 }

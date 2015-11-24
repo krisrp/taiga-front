@@ -6,8 +6,8 @@ span.detail-status-inner.js-edit-status(
     <% if(editable){ %>
     span.icon.icon-arrow-bottom
     <% }%>
-    
-    ul.pop-status
+
+    ul.pop-status.popover
         <% _.each(statuses, function(st) { %>
         li
             a.status(

@@ -94,20 +94,18 @@ div.wrapper(
 
         section.ticket-assigned-to(tg-assigned-to, ng-model="issue", required-perm="modify_issue")
 
-        section.track-buttons-container.ticket-track-buttons
-
-            div.watch-button
-                tg-watch-button(
-                    data-environment="ticket"
-                    item="issue"
-                    on-watch="ctrl.onWatch"
-                    on-unwatch="ctrl.onUnwatch"
-                )
-
+        section.ticket-watch-buttons
+            div.ticket-watch(
+                tg-watch-button
+                item="issue"
+                data-environment="ticket"
+                on-watch="ctrl.onWatch"
+                on-unwatch="ctrl.onUnwatch"
+            )
             div.ticket-watchers(
                 tg-watchers
                 ng-model="issue"
-                required-perm="modify_issue"
+                required-perm="modify_us"
             )
 
         section.ticket-detail-settings

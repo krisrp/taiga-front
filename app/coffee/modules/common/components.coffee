@@ -357,11 +357,11 @@ BlockButtonDirective = ($rootscope, $loading, $template) ->
                 $el.find('.item-block').addClass('editable')
 
             if item.is_blocked
-                $el.find('.item-block').hide()
-                $el.find('.item-unblock').show()
+                $el.find('.item-block').removeClass('is-active')
+                $el.find('.item-unblock').addClass('is-active')
             else
-                $el.find('.item-block').show()
-                $el.find('.item-unblock').hide()
+                $el.find('.item-block').addClass('is-active')
+                $el.find('.item-unblock').removeClass('is-active')
 
         $el.on "click", ".item-block", (event) ->
             event.preventDefault()

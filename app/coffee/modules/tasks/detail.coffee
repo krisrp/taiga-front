@@ -324,17 +324,8 @@ module.directive("tgTaskStatusButton", ["$rootScope", "$tgRepo", "$tgConfirm", "
                                         "$compile", "$translate", "$tgTemplate", TaskStatusButtonDirective])
 
 
-TaskIsIocaineButtonDirective = ($rootscope, $tgrepo, $confirm, $loading, $qqueue, $compile) ->
-    template = _.template("""
-      <fieldset title="{{ 'TASK.TITLE_ACTION_IOCAINE' | translate }}">
-        <label for="is-iocaine"
-               translate="TASK.ACTION_IOCAINE"
-               class="button button-gray is-iocaine <% if(isEditable){ %>editable<% }; %> <% if(isIocaine){ %>active<% }; %>">
-              Iocaine
-        </label>
-        <input type="checkbox" id="is-iocaine" name="is-iocaine"/>
-      </fieldset>
-    """)
+TaskIsIocaineButtonDirective = ($rootscope, $tgrepo, $confirm, $loading, $qqueue, $compile, $template) ->
+    template = $template.get("issue/iocaine-button.html", true)
 
     link = ($scope, $el, $attrs, $model) ->
         isEditable = ->
@@ -392,4 +383,4 @@ TaskIsIocaineButtonDirective = ($rootscope, $tgrepo, $confirm, $loading, $qqueue
     }
 
 module.directive("tgTaskIsIocaineButton", ["$rootScope", "$tgRepo", "$tgConfirm", "$tgLoading", "$tgQqueue",
-                                           "$compile", TaskIsIocaineButtonDirective])
+                                           "$compile", "$tgTemplate", TaskIsIocaineButtonDirective])

@@ -28,9 +28,10 @@ div.ticket-watch-inner
             translate="COMMON.WATCH_BUTTON.UNWATCH"
         )
 
-    a.add-watcher.js-add-watcher(
+    a.add-watcher(
         href=""
         title="{{'COMMON.WATCHERS.TITLE_ADD' | translate}}"
+        ng-click="vm.openWatchers()"
     )
         span + {{'COMMON.WATCHERS.ADD' | translate}}
 

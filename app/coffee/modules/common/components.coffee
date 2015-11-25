@@ -232,12 +232,6 @@ WatchersDirective = ($rootscope, $confirm, $repo, $qqueue, $template, $compile, 
 
                 deleteWatcher(watcherIds)
 
-        $el.on "click", ".js-add-watcher", (event) ->
-            event.preventDefault()
-            return if not isEditable()
-            $scope.$apply ->
-                $rootscope.$broadcast("watcher:add", $model.$modelValue)
-
         $scope.$on "watcher:added", (ctx, watcherId) ->
             watchers = _.clone($model.$modelValue.watchers, false)
             watchers.push(watcherId)

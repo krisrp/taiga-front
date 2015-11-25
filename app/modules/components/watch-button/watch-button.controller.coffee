@@ -20,9 +20,10 @@
 class WatchButtonController
     @.$inject = [
         "tgCurrentUserService",
+        "$rootScope"
     ]
 
-    constructor: (@currentUserService) ->
+    constructor: (@currentUserService, @rootScope) ->
         @.user = @currentUserService.getUser()
         @.isMouseOver = false
         @.loading = false
@@ -32,6 +33,9 @@ class WatchButtonController
 
     showTextWhenMouseIsLeave: ->
         @.isMouseOver = false
+
+    openWatchers: ->
+        @rootScope.$broadcast("watcher:add", @.item)
 
     toggleWatch: ->
         @.loading = true

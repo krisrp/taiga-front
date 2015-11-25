@@ -37,6 +37,19 @@ class WatchButtonController
     openWatchers: ->
         @rootScope.$broadcast("watcher:add", @.item)
 
+    getPerms: ->
+        return "" if !@.item
+
+        name = @.item._name
+
+        perms = {
+            userstories: 'modify_us',
+            issues: 'modify_issue',
+            tasks: 'modify_task'
+        }
+
+        return perms[name]
+
     toggleWatch: ->
         @.loading = true
 

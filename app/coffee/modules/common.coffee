@@ -93,21 +93,37 @@ module.factory("$selectedText", ["$window", "$document", SelectedText])
 ## Permission directive, hide elements when necessary
 #############################################################################
 
-CheckPermissionDirective = ->
+CheckPermissionDirective = (projectService) ->
     render = ($el, project, permission) ->
-        $el.removeClass('hidden') if project.my_permissions.indexOf(permission) > -1
+        if project && permission
+            $el.removeClass('hidden') if project.get('my_permissions').indexOf(permission) > -1
 
     link = ($scope, $el, $attrs) ->
         $el.addClass('hidden')
         permission = $attrs.tgCheckPermission
 
-        $scope.$watch "project", (project) ->
-            render($el, project, permission) if project?
+        unwatch = $scope.$watch () ->
+            return projectService.project
+        , () ->
+            return if !projectService.project
+
+            render($el, projectService.project, permission)
+            unwatch()
+
+        unObserve = $attrs.$observe "tgCheckPermission", (permission) ->
+            return if !permission
+
+            render($el, projectService.project, permission)
+            unObserve()
 
         $scope.$on "$destroy", ->
             $el.off()
 
     return {link:link}
+
+CheckPermissionDirective.$inject = [
+    "tgProjectService"
+]
 
 module.directive("tgCheckPermission", CheckPermissionDirective)
 

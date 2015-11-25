@@ -32,6 +32,7 @@ div.ticket-watch-inner
         href=""
         title="{{'COMMON.WATCHERS.TITLE_ADD' | translate}}"
         ng-click="vm.openWatchers()"
+        tg-check-permission="{{vm.getPerms()}}"
     )
         span + {{'COMMON.WATCHERS.ADD' | translate}}
 

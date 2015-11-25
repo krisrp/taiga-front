@@ -100,7 +100,9 @@ div.wrapper(
                 tg-us-status-button
                 ng-model="us"
             )
-
+            
+            div(tg-tribe-linked)
+            
         //tg-created-by-display.ticket-created-by(ng-model="us")
 
         tg-us-estimation.ticket-estimation(ng-model="us")
@@ -124,7 +126,9 @@ div.wrapper(
                 ng-model="us"
                 required-perm="modify_us"
             )
-
+            
+        section.ticket-to-tribe
+            tg-tribe-button
 
         section.ticket-detail-settings
             tg-us-team-requirement-button(ng-model="us")

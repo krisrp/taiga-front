@@ -881,6 +881,12 @@
         "ASSIGN": "Assign User Story",
         "NOT_ESTIMATED": "Not estimated",
         "TOTAL_US_POINTS": "Total Us points",
+        "TRIBE": {
+            "PUBLISH": "Publish as Gig in Taiga Tribe",
+            "PUBLISHED_AS_GIG": "Story published as Gig in Taiga Tribe",
+            "DELETE_LINK": "Delete link",
+            "SYNCHRONIZE_LINK": "synchronize with Taiga Tribe"
+        },
         "FIELDS": {
             "TEAM_REQUIREMENT": "Team Requirement",
             "CLIENT_REQUIREMENT": "Client Requirement",

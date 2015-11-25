@@ -137,3 +137,13 @@ a.button-gray {
         background: $black;
     }
 }
+
+.button-tribe {
+    @extend %button;
+    background: $tribe-primary;
+    &:hover,
+    &.active {
+        background: $tribe-secondary;
+        color: $white;
+    }
+}

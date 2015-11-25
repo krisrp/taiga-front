@@ -1,0 +1,30 @@
+.tribe-linked.js-tribe-linked(ng-class="{'is-active': vm.open, 'is-inactive': vm.open == false}")
+    .tribe-linked-inner
+        .tribe-linked-header
+            img.tribe-logo(
+                ng-click="vm.show()"
+                alt-""
+                title="{{ 'US.TRIBE.PUBLISHED_AS_GIG' | translate }}"
+                src="/#{v}/images/tribe-logo.png"
+            )
+            p.title {{ "US.TRIBE.PUBLISHED_AS_GIG" | translate }}
+            a.close(
+                ng-click="vm.hide()"
+                href=""
+                title="{{ 'US.TRIBE.DELETE_LINK' | translate }}"
+            )
+                include ../../../svg/remove.svg
+        // Add here the US name
+        a.gig-title(
+            href=""
+            title="Logotipo para una empresa de tecnología"
+            target="_blank"
+        ) Logotipo para una empresa de tecnología
+        a.delete-link(
+            href=""
+            title="{{ 'US.TRIBE.DELETE_LINK' | translate }}"
+        ) {{ 'US.TRIBE.DELETE_LINK' | translate }}
+        a.synchronize-link.button-tribe(
+            href=""
+            title="{{ 'US.TRIBE.SINCHRONIZE_LINK' }}"
+        ) {{ 'US.TRIBE.SYNCHRONIZE_LINK' | translate }}

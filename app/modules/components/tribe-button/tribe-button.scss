@@ -1,0 +1,25 @@
+.tribe-button {
+    @extend %medium;
+    @extend %button;
+    background: $tribe-primary;
+    display: block;
+    margin: 1rem 0;
+    padding: .5rem .25rem;
+    text-transform: uppercase;
+    transition: .2s linear;
+    &:hover {
+        background: $tribe-secondary;
+        span {
+            color: $white;
+        }
+    }
+    span {
+        color: $white;
+    }
+    img {
+        height: 1.5rem;
+        margin-right: .5rem;
+        vertical-align: text-bottom;
+        width: 1.5rem;
+    }
+}

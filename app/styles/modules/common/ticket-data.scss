@@ -1,5 +1,8 @@
 .ticket-header {
+    align-items: center;
+    display: flex;
     margin: 1.5rem 0 2rem;
+    position: relative;
     .ticket-title {
         @extend %larger;
         @extend %light;

@@ -72,8 +72,9 @@ div.wrapper(
                             tg-bo-href="nextUrl"
                             title="{{'TASK.NEXT' | translate}}"
                         )
-
-            div.tags-block(tg-tag-line, ng-model="task", required-perm="modify_task")
+            .subheader
+                div.tags-block(tg-tag-line, ng-model="task", required-perm="modify_task")
+                tg-created-by-display.ticket-created-by(ng-model="task")
 
         section.duty-content(tg-editable-description, ng-model="task", required-perm="modify_task")
 

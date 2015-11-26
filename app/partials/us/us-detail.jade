@@ -65,8 +65,9 @@ div.wrapper(
                             tg-bo-href="nextUrl"
                             title="{{'US.NEXT' | translate}}"
                         )
-
-            div.tags-block(tg-tag-line, ng-model="us", required-perm="modify_us")
+            .subheader
+                .tags-block(tg-tag-line, ng-model="us", required-perm="modify_us")
+                tg-created-by-display.ticket-created-by(ng-model="us")
 
         section.duty-content(tg-editable-description, ng-model="us", required-perm="modify_us")
 
@@ -101,7 +102,7 @@ div.wrapper(
                 ng-model="us"
             )
 
-        //tg-created-by-display.ticket-created-by(ng-model="us")
+        
 
         tg-us-estimation.ticket-estimation(ng-model="us")
 

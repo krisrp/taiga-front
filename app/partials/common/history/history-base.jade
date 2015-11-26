@@ -1,3 +1,5 @@
+include ../components/wysiwyg.jade
+
 section.history
     ul.history-tabs
         li
@@ -14,9 +16,7 @@ section.history
           div(tg-check-permission!="modify_<%- type %>", tg-toggle-comment, class="add-comment")
               textarea(ng-attr-placeholder="{{'COMMENTS.TYPE_NEW_COMMENT' | translate}}", ng-model!="<%- ngmodel %>.comment", tg-markitup="tg-markitup")
               <% if (mode !== "edit") { %>
-              a(class="help-markdown", href="https://taiga.io/support/taiga-markdown-syntax/", target="_blank", title="{{'COMMON.WYSIWYG.MARKDOWN_HELP' | translate}}")
-                  span.icon.icon-help
-                  span(translate="COMMON.WYSIWYG.MARKDOWN_HELP")
+              +wysihelp
               button(type="button", ng-disabled!="!<%- ngmodel %>.comment.length" title="{{'COMMENTS.COMMENT' | translate}}", translate="COMMENTS.COMMENT", class="button button-green save-comment")
               <% } %>
     section.history-activity.hidden
